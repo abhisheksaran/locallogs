@@ -9,7 +9,8 @@ from django.utils.decorators import method_decorator
 from django.views.generic import (CreateView, DeleteView, DetailView, ListView, UpdateView)
 
 from ..forms import SellerSignUpForm, BuyerSignUpForm
-from ..models import User
+from ..models import User, Items
+from ..decorators import seller_required
 # Create your views here.
 
 
@@ -25,18 +26,39 @@ class SellerSignUpView(CreateView):
     def from_valid(self, form):
         user = form.save()
         login(self.request, user)
-        return redirect('seller:product_change_list')
+        return redirect('seller:items_change_list')
 
+@method_decorator([login_required, seller_required], name='dispatch')
+class ItemsListView(ListView):
+    model = Items
+    ordering = ('name',)
+    context_object_name = 'items'
+    template_name ='products/seller/items_home_list.html'
 
-class ProductListView():
-    pass
+    def get_query(self):
+        queryset = self.request.user.items
+        return queryset
+    
 
-class ProductCreateView():
-    pass
+class ItemsAddView(UpdateView):
+    model = Items
+    fields = ('name', 'category', 'description','tags', )
+    template_name = 'products/seller/item_add_form.html'
 
-class ProductUpdateView():
-    pass
+    def form_valid(self, form):
+        quiz = form.save(commit=False)
+        quiz.owner = self.request.user
+        quiz.save()
+        messages.success(self.request, 'The the item is added successfully')
+        return redirect('seller:items_list')
 
+class ItemUpdateView():
+    model = Items
+    fields = ('name', 'subject', )
+    context_object_name = 'items'
+    template_name = 'classroom/teachers/item_update_form.html'
+
+   
 class ProductDeleteView():
     pass
 

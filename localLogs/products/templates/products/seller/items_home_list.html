@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item active" aria-current="page">My Items</li>
+    </ol>
+  </nav>
+  <h2 class="mb-3">My Items</h2>
+  <!-- <a href="{% url 'seller:item_add' %}" class="btn btn-primary mb-3" role="button">Add Item</a> -->
+  <div class="card">
+    <table class="table mb-0">
+      <thead>
+        <tr>
+          <th>Item</th>
+          <th>Category</th>
+          <th>Description</th>
+          <th>Seller</th>
+          <th>Tags</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for item in items %}
+          <tr>
+            <td class="align-middle">{{ item.name }}</a></td>
+            <td class="align-middle">{{ item.category }}</td>
+            <td class="align-middle">{{ item.description }}</td>
+            <td class="align-middle">{{ item.owner }}</td>
+            <td class="align-middle">{{ item.seller }}</td>
+            <td class="text-right">
+                <!-- <a href="{% url 'teachers:item_order' quiz.pk %}" class="btn btn-primary">View Orders</a> -->
+            </td>
+          </tr>
+        {% empty %}
+          <tr>
+            <td class="bg-light text-center font-italic" colspan="5">You haven't added any item yet.</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+{% endblock %}

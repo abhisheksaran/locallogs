@@ -17,7 +17,7 @@ class Tag(models.Model):
 		return self.name
 
 # Products added by various sellers
-class Products(models.Model):
+class Items(models.Model):
 	CATEGORY = (
 			('Indoor', 'Indoor'),
 			('Out Door', 'Out Door'),
@@ -40,7 +40,7 @@ class Orders(models.Model):
 			('Delivered', 'Delivered'),
 			)
 	owner = models.ForeignKey(User, on_delete=models.CASCADE, related_name ='buyer')
-	product = models.ForeignKey(Products, null=True, on_delete= models.SET_NULL)
+	item = models.ForeignKey(Items, null=True, on_delete= models.SET_NULL)
 	date_created = models.DateTimeField(auto_now_add=True, null=True)
 	status = models.CharField(max_length=200, null=True, choices=STATUS)
 	note = models.CharField(max_length=1000, null=True)

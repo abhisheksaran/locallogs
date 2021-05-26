@@ -9,7 +9,7 @@ class SignUpView(TemplateView):
 def home(request):
     if request.user.is_authenticated:
         if request.user.is_seller:
-            return redirect('seller:product_change_list')
+            return redirect('seller:items_list')
         else:
             return redirect('buyer:product_list')
     return render(request, 'products/home.html')

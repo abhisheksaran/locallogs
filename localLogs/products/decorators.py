@@ -8,7 +8,7 @@ def buyer_required(function=None, redirect_field_name=REDIRECT_FIELD_NAME, login
     redirects to the log-in page if necessary.
     '''
     actual_decorator = user_passes_test(
-        lambda u: u.is_active and u.is_student,
+        lambda u: u.is_active and u.is_buyer,
         login_url=login_url,
         redirect_field_name=redirect_field_name
     )
@@ -19,11 +19,11 @@ def buyer_required(function=None, redirect_field_name=REDIRECT_FIELD_NAME, login
 
 def seller_required(function=None, redirect_field_name=REDIRECT_FIELD_NAME, login_url='login'):
     '''
-    Decorator for views that checks that the logged in user is a teacher,
+    Decorator for views that checks that the logged in user is a seller,
     redirects to the log-in page if necessary.
     '''
     actual_decorator = user_passes_test(
-        lambda u: u.is_active and u.is_teacher,
+        lambda u: u.is_active and u.is_seller,
         login_url=login_url,
         redirect_field_name=redirect_field_name
     )
