@@ -9,7 +9,7 @@ from django.urls import reverse_lazy
 from django.utils.decorators import method_decorator
 from django.views.generic import CreateView, ListView, UpdateView
 
-#from ..decorators import student_required
+#from ..decorators import buyer_required
 from ..forms import SellerSignUpForm, BuyerSignUpForm
 from ..models import User
 # Create your views here.
@@ -26,4 +26,4 @@ class BuyerSignUpView(CreateView):
     def form_valid(self, form):
         user = form.save()
         login(self.request, user)
-        return redirect('students:quiz_list')
+        return redirect('buyers:quiz_list')

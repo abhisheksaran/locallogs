@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.contrib import messages
 from django.contrib.auth import login
 from django.contrib.auth.decorators import login_required
 from django.db import transaction
@@ -40,23 +41,35 @@ class ItemsListView(ListView):
         return queryset
     
 
-class ItemsAddView(UpdateView):
+class ItemsAddView(CreateView):
     model = Items
-    fields = ('name', 'category', 'description','tags', )
+    fields = ('name', 'category', 'description' )
     template_name = 'products/seller/item_add_form.html'
 
     def form_valid(self, form):
-        quiz = form.save(commit=False)
-        quiz.owner = self.request.user
-        quiz.save()
+        item = form.save(commit=False)
+        item.owner = self.request.user
+        item.save()
         messages.success(self.request, 'The the item is added successfully')
         return redirect('seller:items_list')
 
+# def item_add(request):
+#     items = get_object_or_404(Items, owner=request.user)
+#     if request.method == 'POST':
+#         form = QuestionForm(request.POST)
+#         if form.is_valid():
+#             item = form.save(commit=False)
+#             item.owner = self.request.user
+#             item.save()
+#             messages.success(request, 'Item has been added successfully')
+#             return redirect ('seller:items_list')
+#     else form = QuestionForm()
+
+#     return render(request, 'products/seller/item_add_form.html',{'items':items, 'form':form})
+
+
 class ItemUpdateView():
-    model = Items
-    fields = ('name', 'subject', )
-    context_object_name = 'items'
-    template_name = 'classroom/teachers/item_update_form.html'
+    pass
 
    
 class ProductDeleteView():

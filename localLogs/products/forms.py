@@ -33,6 +33,6 @@ class BuyerSignUpForm(UserCreationForm):
         user = super().save(commit=False)
         user.is_buyer = True
         user.save()
-        student = Student.objects.create(user=user)
-        student.interests.add(*self.cleaned_data.get('interests'))
+        buyer = buyer.objects.create(user=user)
+        buyer.interests.add(*self.cleaned_data.get('interests'))
         return user

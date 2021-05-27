@@ -7,7 +7,7 @@
     </ol>
   </nav>
   <h2 class="mb-3">My Items</h2>
-  <!-- <a href="{% url 'seller:item_add' %}" class="btn btn-primary mb-3" role="button">Add Item</a> -->
+  <a href="{% url 'seller:item_add' %}" class="btn btn-primary mb-3" role="button">Add Item</a> 
   <div class="card">
     <table class="table mb-0">
       <thead>
@@ -29,8 +29,7 @@
             <td class="align-middle">{{ item.owner }}</td>
             <td class="align-middle">{{ item.seller }}</td>
             <td class="text-right">
-                <!-- <a href="{% url 'teachers:item_order' quiz.pk %}" class="btn btn-primary">View Orders</a> -->
-            </td>
+            </td>>
           </tr>
         {% empty %}
           <tr>
