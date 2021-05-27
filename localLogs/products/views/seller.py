@@ -27,7 +27,7 @@ class SellerSignUpView(CreateView):
     def from_valid(self, form):
         user = form.save()
         login(self.request, user)
-        return redirect('seller:items_change_list')
+        return redirect('seller:items_list')
 
 @method_decorator([login_required, seller_required], name='dispatch')
 class ItemsListView(ListView):
