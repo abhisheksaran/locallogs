@@ -36,8 +36,8 @@ class ItemsListView(ListView):
     context_object_name = 'items'
     template_name ='products/seller/items_home_list.html'
 
-    def get_query(self):
-        queryset = self.request.user.items
+    def get_queryset(self):
+        queryset = Items.objects.filter(owner=self.request.user)
         return queryset
     
 
