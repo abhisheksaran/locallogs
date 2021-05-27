@@ -19,8 +19,11 @@ class Tag(models.Model):
 # Products added by various sellers
 class Items(models.Model):
 	CATEGORY = (
-			('Indoor', 'Indoor'),
-			('Out Door', 'Out Door'),
+			('Fruits', 'Fruits'),
+			('Vegetables', 'Vegetables'),
+			('Agricultural Tools', 'Agricultural Tools')
+			('Fodder','Fodder')
+			('Dairy products', 'Dairy Products')
 			) 
 	owner = models.ForeignKey(User, on_delete=models.CASCADE, related_name ='seller')
 	name = models.CharField(max_length=255)
