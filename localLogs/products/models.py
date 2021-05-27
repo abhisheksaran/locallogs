@@ -21,8 +21,8 @@ class Items(models.Model):
 	CATEGORY = (
 			('Fruits', 'Fruits'),
 			('Vegetables', 'Vegetables'),
-			('Agricultural Tools', 'Agricultural Tools')
-			('Fodder','Fodder')
+			('Agricultural Tools', 'Agricultural Tools'),
+			('Fodder','Fodder'),
 			('Dairy products', 'Dairy Products')
 			) 
 	owner = models.ForeignKey(User, on_delete=models.CASCADE, related_name ='seller')

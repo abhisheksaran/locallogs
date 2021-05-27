@@ -20,6 +20,9 @@ class SellerSignUpView(CreateView):
     form_class = SellerSignUpForm
     template_name = 'registration/signup_form.html'
 
+    #without this signup click won't work
+    success_url = reverse_lazy('seller:items_list')
+
     def get_context_data(self, **kwargs):
         kwargs['user_type'] = 'seller'
         return super().get_context_data(**kwargs)

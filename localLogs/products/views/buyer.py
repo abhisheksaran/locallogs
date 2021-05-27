@@ -26,4 +26,4 @@ class BuyerSignUpView(CreateView):
     def form_valid(self, form):
         user = form.save()
         login(self.request, user)
-        return redirect('buyers:quiz_list')
+        return redirect('seller:items_list')
