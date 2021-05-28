@@ -1,3 +1,24 @@
+body {
+    background-color:#fff;
+    font-family: 'Martel', serif;
+    font-weight: 400;
+    color: #2B394A;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Karla', sans-serif;
+    font-weight: 700;
+}
+
+.button {
+    font-family: 'Karla', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: #FDA5A4 !important;
+}
+
 logo {
     font-family: 'Clicker Script', cursive;
   }
@@ -18,7 +39,7 @@ logo {
   .list-group-formset label {
     display: none;
   }
-  
+
   .list-group-formset .form-group,
   .list-group-formset .invalid-feedback {
     margin-bottom: 0;
