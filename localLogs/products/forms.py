@@ -28,11 +28,10 @@ class BuyerSignUpForm(UserCreationForm):
     class Meta(UserCreationForm.Meta):
         model = User
 
-    @transaction.atomic
-    def save(self):
+    
+    def save(self,commit= True):
         user = super().save(commit=False)
         user.is_buyer = True
-        user.save()
-        buyer = buyer.objects.create(user=user)
-        buyer.interests.add(*self.cleaned_data.get('interests'))
+        if commit: 
+            user.save()
         return user

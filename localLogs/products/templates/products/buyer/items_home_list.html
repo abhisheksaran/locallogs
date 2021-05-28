@@ -3,11 +3,11 @@
 {% block content %}
   <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
-      <li class="breadcrumb-item active" aria-current="page">My Items</li>
+      <li class="breadcrumb-item active" aria-current="page">Welcome to Local Logs</li>
     </ol>
   </nav>
-  <h2 class="mb-3">My Items</h2>
-  <a href="{% url 'seller:item_add' %}" class="btn btn-primary mb-3" role="button">Add Item</a> 
+  <h2 class="mb-3">Available Items</h2>
+  <a href="{% url 'buyer:orders_list' %}" class="btn btn-primary mb-3 text-right" role="button">Cart</a> 
   <div class="card">
     <table class="table mb-0">
       <thead>
@@ -33,7 +33,7 @@
           </tr>
         {% empty %}
           <tr>
-            <td class="bg-light text-center font-italic" colspan="5">You haven't added any item yet.</td>
+            <td class="bg-light text-center font-italic" colspan="5"> See your cart by clicking on cart </td>
           </tr>
         {% endfor %}
       </tbody>

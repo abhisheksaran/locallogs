@@ -24,4 +24,9 @@ urlpatterns = [
         path('',seller.ItemsListView.as_view(), name='items_list'),
         path('items/add/',seller.ItemsAddView.as_view(), name='item_add'),
     ],'products'),namespace='seller')),
+
+    path('buyer/',include(([
+        path('',buyer.ItemsListView.as_view(), name='items_list'),
+        path('cart/',buyer.OrdersListView.as_view(), name='orders_list'),
+    ],'products'),namespace='buyer')),
 ]

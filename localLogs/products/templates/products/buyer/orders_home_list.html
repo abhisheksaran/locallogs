@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item active" aria-current="page">My Cart</li>
+    </ol>
+  </nav>
+  <h2 class="mb-3">My Items</h2>
+  <!-- <a href="{% url 'buyer:orders_list' %}" class="btn btn-primary mb-3" role="button">Cart</a>  -->
+  <div class="card">
+    <table class="table mb-0">
+      <thead>
+        <tr>
+          <th>Item</th>
+          <th>Date</th>
+          <th>Status</th>
+          <th>Note</th>
+          <th>Seller</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for order in orders %}
+          <tr>
+            <td class="align-middle">{{ order.item.name }}</a></td>
+            <td class="align-middle">{{ order.date_created }}</td>
+            <td class="align-middle">{{ order.status }}</td>
+            <td class="align-middle">{{ order.note}}</td>
+            <td class="align-middle">{{ order.item.owner }}</td>
+            <td class="text-right">
+            </td>>
+          </tr>
+        {% empty %}
+          <tr>
+            <td class="bg-light text-center font-italic" colspan="5"> See your cart by clicking on cart </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+{% endblock %}
