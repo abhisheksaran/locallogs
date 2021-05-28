@@ -6,7 +6,7 @@
       <li class="breadcrumb-item active" aria-current="page">My Cart</li>
     </ol>
   </nav>
-  <h2 class="mb-3">My Items</h2>
+  <h2 class="mb-3">My Orders</h2>
   <!-- <a href="{% url 'buyer:orders_list' %}" class="btn btn-primary mb-3" role="button">Cart</a>  -->
   <div class="card">
     <table class="table mb-0">
@@ -28,8 +28,7 @@
             <td class="align-middle">{{ order.status }}</td>
             <td class="align-middle">{{ order.note}}</td>
             <td class="align-middle">{{ order.item.owner }}</td>
-            <td class="text-right">
-            </td>>
+            <td class="text-right"></td>
           </tr>
         {% empty %}
           <tr>

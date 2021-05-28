@@ -55,3 +55,10 @@ class OrdersListView(ListView):
         queryset = Orders.objects.filter(owner=self.request.user)
         return queryset
 
+@login_required
+@buyer_required
+def AddInCart(request, pk):
+    item = Items.objects.get(pk=pk)
+    order = Orders(owner=request.user, item=item, status=Orders.STATUS[0][0])
+    order.save()
+    return redirect('buyer:items_list')
