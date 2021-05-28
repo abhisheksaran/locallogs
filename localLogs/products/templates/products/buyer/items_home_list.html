@@ -16,7 +16,7 @@
           <th>Category</th>
           <th>Description</th>
           <th>Seller</th>
-          <th>Want to buy?</th>
+          <th>Want to Buy this item</th>
           <th></th>
         </tr>
       </thead>
@@ -27,16 +27,11 @@
             <td class="align-middle">{{ item.category }}</td>
             <td class="align-middle">{{ item.description }}</td>
             <td class="align-middle">{{ item.owner }}</td>
-            <td class="align-middle">{{ item.seller }}</td>
-            <td class="text-right">
-              <a href="{% url 'buyer:add_in_cart' pk=item.pk %}" class="btn btn-primary mb-3 text-right" role="button">Add in cart</button>
+            <td class="align-right">
+              <a href="{% url 'buyer:add_in_cart' pk=item.pk %}" class="btn btn-primary mb-3 align-right" role="button">Add in cart</button>
             </td>
           </tr>
-        {% empty %}
-          <tr>
-            <td class="bg-light text-center font-italic" colspan="5"> See your cart by clicking on cart </td>
-          </tr>
-        {% endfor %}
+       {% endfor %}
       </tbody>
     </table>
   </div>

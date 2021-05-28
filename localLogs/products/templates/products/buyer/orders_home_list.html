@@ -18,6 +18,7 @@
           <th>Note</th>
           <th>Seller</th>
           <th></th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
@@ -30,11 +31,7 @@
             <td class="align-middle">{{ order.item.owner }}</td>
             <td class="text-right"></td>
           </tr>
-        {% empty %}
-          <tr>
-            <td class="bg-light text-center font-italic" colspan="5"> See your cart by clicking on cart </td>
-          </tr>
-        {% endfor %}
+        {% end for %}
       </tbody>
     </table>
   </div>

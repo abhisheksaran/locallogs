@@ -8,6 +8,7 @@ from django.utils.html import escape, mark_safe
 class User (AbstractUser):
 	is_seller  = models.BooleanField(default=False)
 	is_buyer = models.BooleanField(default=False)
+	contact_number = models.IntegerField(null=False)
 
 # Optional Tags to be attached with each product
 class Tag(models.Model):
