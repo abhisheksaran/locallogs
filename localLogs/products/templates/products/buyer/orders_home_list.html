@@ -31,7 +31,11 @@
             <td class="align-middle">{{ order.item.owner }}</td>
             <td class="text-right"></td>
           </tr>
-        {% end for %}
+        {% empty %}
+          <tr>
+            <td class="bg-light text-center font-italic" colspan="5">No item in cart yet.</td>
+          </tr>
+        {% endfor %}
       </tbody>
     </table>
   </div>
