@@ -18,8 +18,7 @@ from ..decorators import buyer_required
 class BuyerSignUpView(CreateView):
     model = User
     form_class = BuyerSignUpForm
-    template_name = 'registration/signup_form.html'
-    
+    template_name = 'registration/signup_form.html'    
     success_url = reverse_lazy('buyer:items_list')
 
     def get_context_data(self, **kwargs):
